@@ -1,0 +1,50 @@
+基于给定数据集，开发一套系统化的计算框架以预测enhancer与promoter的相互作用
+
+
+
+ep文件    (44313, 17)
+
+ 0   bin                            距离分箱。将增强子到启动子的距离（或窗口长度）划分成的区间，用于处理长尾分布
+ 1   enhancer_chrom                 增强子所在的染色体编号
+ 2   enhancer_distance_to_promoter  核心特征。增强子与启动子中心点或边缘之间的线性碱基距离
+ 3   enhancer_end                   增强子在基因组上的终止坐标
+ 4   enhancer_name                  增强子的标识符
+ 5   enhancer_start                 增强子在基因组上的起始坐标
+ 6   label                          目标变量, 两个 DNA 片段（增强子和启动子）在生物活体细胞内是否真的发生了“物理接触”并产生了调控作用
+ 7   promoter_chrom                 启动子所在的染色体编号。通常与增强子在同一条染色体上
+ 8   promoter_end                   启动子的终止坐标
+ 9   promoter_name                  启动子的唯一标识符
+ 10  promoter_start                 启动子的起始坐标
+ 11  window_end                     增强子和启动子之间的“间隙”区域坐标
+ 12  window_start                   增强子和启动子之间的“间隙”区域坐标
+ 13  window_chrom                   增强子和启动子之间的“间隙”区域坐标
+ 14  window_name                    窗口区域的标识符
+ 15  interactions_in_window         在该窗口区域内观测到的其他相互作用数量（反映区域活跃度）
+ 16  active_promoters_in_window     该窗口范围内包含的其他活性启动子数量（竞争性指标）
+
+
+
+frag0文件     (3189, 4)
+
+ 0   enhancer_name  增强子的唯一标识符, 格式为 细胞系|染色体:起始位置-终止位置
+ 1   enhancer_seq   关键特征。增强子区域的实际 DNA 碱基序列（由 A, T, C, G 组成）
+ 2   promoter_name  启动子的唯一标识符，格式与增强子名称一致
+ 3   promoter_seq   关键特征。启动子区域的实际 DNA 碱基序列
+
+
+
+frag1文件     (62161, 6)
+
+ 0   enhancer_name       增强子的原始完整区域（父级）。例如：chr1:26611045-26611600
+ 1   enhancer_frag_name  从上述增强子中截取出来的具体片段。通常长度固定（如 200bp）
+ 2   enhancer_frag_seq   核心特征。该增强子片段的具体 DNA 碱基序列
+ 3   promoter_name       启动子的原始完整区域（父级）
+ 4   promoter_frag_name  从启动子中截取出来的具体片段
+ 5   promoter_frag_seq   核心特征。该启动子片段的具体 DNA 碱基序列
+
+
+
+反向追溯某个 fragment 属于哪一个 E–P 对
+验证 fragment 是否完全覆盖原 enhancer / promoter
+推断这些数据是为 CNN / Transformer / Siamese 模型中的哪一类结构准备的
+
