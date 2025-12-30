@@ -51,40 +51,22 @@ EPI-Predict: Enhancer-Promoter Interaction Prediction
 2. **鲁棒性表现**：尽管数据集存在类别不平衡（正样本远多于负样本），但 **0.4486** 的 MCC 值证明模型依然具有稳健的分类能力。
 
 
-## 📈 数据可视化分析 (Data Visualization)
+## 📈 数据可视化 (Data Visualization)
 
-为了从多个统计与分布角度全面评估模型性能，本项目对预测结果进行了系统性的数据可视化分析。所有图像均由 matplotlib 生成，并统一保存在 image/ 目录中。
+### 1. ROC 曲线
+通过 ROC 曲线验证模型在不同阈值下的表现。
 
-### ROC曲线
+![ROC Curve](image/ROC.png)
 
-<img width="2074" height="1638" alt="ROC" src="https://github.com/user-attachments/assets/f46d3ec5-a727-44c8-b0a3-585264582ff6" />
+### 2. 综合指标与概率分布
+下图展示了模型在 0.6 阈值（绿色虚线）下的性能轮廓及预测概率的 KDE 分布形态。
 
+![Summary Visualization](image/summary_visualization.png)
 
-### 综合指标可视化 (Overall Metrics Visualization)
+### 3. UMAP 维度压缩与特征诊断
+利用 **UMAP** 算法将高维特征映射至二维空间，从拓扑分布的角度诊断分类表现。
 
-<img width="4170" height="2966" alt="summary_visualization" src="https://github.com/user-attachments/assets/657540d5-551f-48db-96c3-3c04401107f0" />
+* **全局叠加分析 (Overlay)**: 将 **FP（红色）** 与 **FN（黄色）** 错误样本强制置顶绘制。
+* **分离对比诊断 (Separation)**: 将正确预测样本淡化为背景阴影，高亮显示错误样本的分布。
 
-
-下图整合了 六项核心评估指标，通过柱状图与雷达图从不同视角展示模型整体性能：
-
-柱状图：直观比较各评价指标的数值大小
-
-雷达图：从多维角度刻画模型性能轮廓，便于整体对比
-
-箱线图：展示预测概率的集中趋势与离散程度
-
-小提琴图：结合概率密度估计（KDE）
-
-更直观反映预测概率的分布形态
-
-图中以 绿色虚线 标出了模型采用的分类阈值 0.6。
-
-## UMAP 数据降维
-
-为了了解模型分类性能，利用 **UMAP** 算法将高维特征映射到二维空间：
-
-
-
-* **全局叠加图 (Overlay)**: 强制将 **FP（红色）** 与 **FN（黄色）** 错误样本置于顶层绘制。若红/黄点聚集成团，说明模型对特定序列模式存在系统性偏见。
-
-* **分离对比图 (Separation)**: 将正确预测样本淡化为背景，专注于分析错误样本在特征空间中的地理分布，从而识别模型“翻车”的盲区。
+![UMAP Analysis](image/umap.png)
