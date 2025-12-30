@@ -1,11 +1,12 @@
-# EPI-Predict
-数据集：   
+# 🧬 EPI-Predict: Enhancer-Promoter Interaction Prediction
 
-https://huggingface.co/datasets/Luxuryend/EpiDataset  
+[![Dataset](https://img.shields.io/badge/Dataset-HuggingFace-yellow)](https://huggingface.co/datasets/Luxuryend/EpiDataset)
+[![Model](https://img.shields.io/badge/Model-CNN-blue)](https://github.com/Luxuryend/EpiDataset)
+[![Framework](https://img.shields.io/badge/Framework-TensorFlow-orange)](https://tensorflow.org)
 
-EPI-Predict: Enhancer-Promoter Interaction Prediction
+**EPI-Predict** 是基于卷积神经网络 (CNN) 与独热编码 (One-hot Encoding) 的 DNA 序列相互作用预测模型。
 
-基于卷积神经网络 (CNN) 与独热编码 (One-hot Encoding) 的 DNA 序列相互作用预测工具。
+---
 
 ## 🔬 方法论 (Methodology)
 
