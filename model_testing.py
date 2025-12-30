@@ -11,7 +11,7 @@ X_dist_test = np.load('npydata/X_dist_test.npy')
 y_test = np.load('npydata/y_test.npy')
 
 y_probs = model.predict({'enh_in': X_enh_test, 'pro_in': X_pro_test, 'dist_in': X_dist_test})
-y_pred = (y_probs > 0.7).astype(int)
+y_pred = (y_probs > 0.6).astype(int)
 
 accuracy = accuracy_score(y_test, y_pred)
 precision = precision_score(y_test, y_pred)
@@ -30,3 +30,4 @@ print(f"MCC: {mcc:.4f}")
 
 print("\n混淆矩阵 (Confusion Matrix):")
 print(confusion_matrix(y_test, y_pred))
+
