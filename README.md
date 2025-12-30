@@ -55,7 +55,12 @@ EPI-Predict: Enhancer-Promoter Interaction Prediction
 
 为了从多个统计与分布角度全面评估模型性能，本项目对预测结果进行了系统性的数据可视化分析。所有图像均由 matplotlib 生成，并统一保存在 image/ 目录中。
 
-综合指标可视化 (Overall Metrics Visualization)
+### ROC曲线
+
+<img width="2074" height="1638" alt="ROC" src="https://github.com/user-attachments/assets/f46d3ec5-a727-44c8-b0a3-585264582ff6" />
+
+
+### 综合指标可视化 (Overall Metrics Visualization)
 
 <img width="4170" height="2966" alt="summary_visualization" src="https://github.com/user-attachments/assets/657540d5-551f-48db-96c3-3c04401107f0" />
 
