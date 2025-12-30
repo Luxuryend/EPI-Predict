@@ -1,4 +1,5 @@
 import numpy as np
+import pandas as pd
 import tensorflow as tf
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_auc_score, confusion_matrix, \
     matthews_corrcoef
@@ -12,6 +13,12 @@ y_test = np.load('npydata/y_test.npy')
 
 y_probs = model.predict({'enh_in': X_enh_test, 'pro_in': X_pro_test, 'dist_in': X_dist_test})
 y_pred = (y_probs > 0.6).astype(int)
+
+# 保存预测结果
+df = pd.read_csv('data/test.csv')
+df['probability'] = y_probs
+df['prediction'] = y_pred
+df.to_csv('data/test_predictions.csv', index=False)
 
 accuracy = accuracy_score(y_test, y_pred)
 precision = precision_score(y_test, y_pred)
@@ -30,4 +37,3 @@ print(f"MCC: {mcc:.4f}")
 
 print("\n混淆矩阵 (Confusion Matrix):")
 print(confusion_matrix(y_test, y_pred))
-
