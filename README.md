@@ -49,3 +49,28 @@ EPI-Predict: Enhancer-Promoter Interaction Prediction
 ### 结果分析 (Result Analysis)
 1. **灵敏度优先**：在 EPI（增强子-启动子相互作用）预测中，漏诊的代价通常高于误报。**0.9944** 的召回率确保了绝大多数潜在的调控关系被成功捕获。
 2. **鲁棒性表现**：尽管数据集存在类别不平衡（正样本远多于负样本），但 **0.4486** 的 MCC 值证明模型依然具有稳健的分类能力。
+
+
+## 📈 数据可视化分析 (Data Visualization)
+
+为了从多个统计与分布角度全面评估模型性能，本项目对预测结果进行了系统性的数据可视化分析。所有图像均由 matplotlib 生成，并统一保存在 image/ 目录中。
+
+综合指标可视化 (Overall Metrics Visualization)
+
+<img width="4170" height="2966" alt="summary_visualization" src="https://github.com/user-attachments/assets/657540d5-551f-48db-96c3-3c04401107f0" />
+
+
+下图整合了 六项核心评估指标，通过柱状图与雷达图从不同视角展示模型整体性能：
+
+柱状图：直观比较各评价指标的数值大小
+
+雷达图：从多维角度刻画模型性能轮廓，便于整体对比
+
+箱线图：展示预测概率的集中趋势与离散程度
+
+小提琴图：结合概率密度估计（KDE）
+
+更直观反映预测概率的分布形态
+
+图中以 绿色虚线 标出了模型采用的分类阈值 0.6。
+
